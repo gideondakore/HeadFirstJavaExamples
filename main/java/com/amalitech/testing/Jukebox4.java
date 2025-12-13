@@ -21,7 +21,7 @@ public class Jukebox4 {
 //        songList.sort(artistCompare);
         // Method 2
 //        Collections.sort(songList, artistCompare);
-        // Method 2
+        // Method 3
         songList.sort(artistCompare);
         IO.println("After Comparator: " + songList);
     }

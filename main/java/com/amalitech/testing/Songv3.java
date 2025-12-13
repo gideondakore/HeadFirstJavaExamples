@@ -5,6 +5,12 @@ public class Songv3 implements Comparable<Songv3> {
     private String artist;
     private int bpm;
 
+    Songv3(String title, String artist, int bpm){
+        this.tittle = title;
+        this.artist = artist;
+        this.bpm = bpm;
+    }
+
     @Override
     public int compareTo(Songv3 s){
         IO.println("This Comparable was used ");
@@ -13,10 +19,12 @@ public class Songv3 implements Comparable<Songv3> {
 
     @Override
     public boolean equals(Object obj){
+        IO.println("Running equals method");
         if(this == obj) return true;
         if(obj == null || this.getClass() != obj.getClass()) return false;
         Songv3 song = (Songv3) obj;
-        return tittle.equals(song.tittle);
+        IO.println(this.bpm);
+        return this.bpm == song.bpm;
     }
 
     @Override
@@ -26,11 +34,7 @@ public class Songv3 implements Comparable<Songv3> {
 
 
 
-    Songv3(String title, String artist, int bpm){
-        this.tittle = title;
-        this.artist = artist;
-        this.bpm = bpm;
-    }
+
 
     public String getTittle(){
         return tittle;
