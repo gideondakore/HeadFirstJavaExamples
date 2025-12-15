@@ -1,38 +1,58 @@
 package com.amalitech.testing.gui;
 
 import javax.swing.*;
-import java.awt.event.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class SimpleGui2 implements ActionListener {
 
+
     public static void main(String[] args){
-       SimpleGui2 gui = new SimpleGui2();
-       gui.go();
+
+        SimpleGui2 gui = new SimpleGui2();
+
+        gui.go();
     }
 
-
     public void go(){
-        JFrame frame = new JFrame();
-        JButton btn = new JButton("Click me!");
+        JFrame frame = new JFrame("CHRISTMAS");
+        frame.setSize(600, 500);
 
+
+        ImageIcon icon = new ImageIcon(getClass().getResource("christmas_image.jpeg"));
+
+        Image scaleImage = icon.getImage().getScaledInstance(600, 500, Image.SCALE_SMOOTH);
+        icon = new ImageIcon(scaleImage);
+
+        JLabel imageLabel = new JLabel(icon);
+        imageLabel.setLayout(new BorderLayout());
+
+        JButton btn = new JButton("Click me!");
+        btn.setCursor(new Cursor(Cursor.HAND_CURSOR));
         btn.addActionListener(this);
+
+
+        imageLabel.add(btn, BorderLayout.CENTER);
+
+        frame.getContentPane().add(imageLabel);
 
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
-        frame.getContentPane().add(btn);
+        frame.setLocationRelativeTo(null);
 
-        frame.setSize(300, 300);
         frame.setVisible(true);
 
 
     }
 
-
-    @Override
     public void actionPerformed(ActionEvent e){
-        ((JButton) e.getSource()).setText("Merry christmas");
-        if(e.getSource() == JButton.class){
-            ((JButton) e.getSource()).setText("\nand\nHappy New Year");
+
+        Object source = e.getSource();
+        if(source instanceof JButton){
+            ((JButton) source).setText("⛄ Merry Christmas and Happy New Year ❄");
+
         }
     }
+
 }
