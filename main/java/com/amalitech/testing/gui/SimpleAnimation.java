@@ -23,7 +23,7 @@ public class SimpleAnimation {
         frame.setSize(300, 300);
         frame.setVisible(true);
 
-        for(int i = 0; i < 130; i++){
+        for(int i = 0; i < Math.sqrt((Math.pow(frame.getWidth(), 2) + Math.pow(frame.getHeight(), 2))); i++){
             xPos++;
             yPos++;
 
