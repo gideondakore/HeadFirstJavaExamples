@@ -99,22 +99,17 @@ public class QuizCardBuilder {
         JFileChooser fileSave = new JFileChooser();
         fileSave.showSaveDialog(frame);
         saveFile(fileSave.getSelectedFile());
-
-
     }
 
     private void saveFile(File file){
-        try{
-            BufferedWriter writer = new BufferedWriter(new FileWriter(file));
 
+        try(BufferedWriter writer = new BufferedWriter(new FileWriter(file))){
             for(QuizCard card : cardList){
-                 writer.write(card.getQuestion() + "/");
-                 writer.write(card.getAnswer() + "\n");
+                writer.write(card.getQuestion() + "/");
+                writer.write(card.getAnswer() + "\n");
             }
 
-            writer.close();
-
-        }catch(IOException ex){
+        } catch(IOException ex){
             IO.println("Couldn't write the cardList out: " + ex.getMessage());
         }
 

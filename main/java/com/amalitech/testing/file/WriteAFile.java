@@ -1,5 +1,7 @@
 package com.amalitech.testing.file;
 
+import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
@@ -10,11 +12,16 @@ public class WriteAFile {
 
             // Using FileWriter DO NOT add any buffering
 
-            FileWriter writer = new FileWriter("Foo.txt");
+            File f = new File("Foo.txt");
+            FileWriter writer = new FileWriter(f);
 
-            writer.write("Hello foo!");
+            writer.write("Tadda!");
 
             writer.close();
+
+            FileReader reader = new FileReader(f);
+            IO.println(reader.ready());
+            reader.close();
 
         }catch (IOException ex){
             ex.printStackTrace();

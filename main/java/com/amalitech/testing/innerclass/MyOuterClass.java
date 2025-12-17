@@ -10,13 +10,17 @@ public class MyOuterClass {
             x = 42;
         }
 
+        public MyInnerClass(int x){
+            this.x = x;
+        }
+
         public int getX(){
             return x;
         }
     }
 
     public int getX(){
-        MyInnerClass myInnerClass = new MyInnerClass();
+        MyInnerClass myInnerClass = new MyInnerClass(x);
         return myInnerClass.getX();
     }
 }
