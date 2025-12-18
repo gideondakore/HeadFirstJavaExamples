@@ -1,10 +1,14 @@
 package com.amalitech.testing.networks;
 
 import java.net.InetSocketAddress;
+import java.net.SocketAddress;
+import java.nio.channels.SocketChannel;
 
 public class FirstNetWork {
 
     public static void main(String[] args){
-//        InetSocketAddress
+        InetSocketAddress serverAddress = new InetSocketAddress("example.com", 80);
+//        SocketChannel
+
     }
 }
