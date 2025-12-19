@@ -34,7 +34,7 @@ public class SimpleAnimation {
 
         int hypotenuse = (int) Math.sqrt(Math.pow(frameWidth / 2, 2) + (frameHeight * frameHeight));
 
-        IO.println("HYPOTENUSES: " + hypotenuse);
+//        IO.println("HYPOTENUSES: " + hypotenuse);
 
         for(int i = 0; i <= hypotenuse / 2 + 220; i++){
             IO.println("HYPOTENUSES in loop... : " + i);
