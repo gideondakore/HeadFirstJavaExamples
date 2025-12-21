@@ -2,7 +2,6 @@ package com.amalitech.testing.gui;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
 import java.util.concurrent.TimeUnit;
 
 public class SimpleAnimation {

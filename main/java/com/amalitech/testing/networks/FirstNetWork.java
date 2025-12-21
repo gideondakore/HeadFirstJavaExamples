@@ -8,7 +8,13 @@ public class FirstNetWork {
 
     public static void main(String[] args){
         InetSocketAddress serverAddress = new InetSocketAddress("example.com", 80);
-//        SocketChannel
+
+        try (SocketChannel socketChannel = SocketChannel.open(serverAddress)) {
+
+            
+        }catch(Exception e){
+            e.printStackTrace();
+        }
 
     }
 }
