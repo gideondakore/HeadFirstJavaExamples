@@ -8,10 +8,8 @@
     public class TestingServer {
 
         public static void main(){
-            try{
+            try( ServerSocket serverSocket = new ServerSocket(5000);){
                 IO.println("Starting server port on 5000");
-
-                ServerSocket serverSocket = new ServerSocket(5000);
 
                 IO.println("Waiting for client to connect...");
 
@@ -31,7 +29,6 @@
                 // Clean up
                 reader.close();
                 socket.close();
-                serverSocket.close();
             }catch (Exception e){
                 e.printStackTrace();
             }
