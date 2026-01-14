@@ -41,46 +41,50 @@
             CharsetDecoder decoder = charset.newDecoder();
 
             // Read data
-            StringBuilder message = new StringBuilder();
+//            StringBuilder message = new StringBuilder();
             while (clientChannel.read(buffer) != -1) {
+//                IO.println("BUFFER FIRST: " + buffer);
                 buffer.flip();  // Switch from writing to reading mode
 
                 // Decode bytes to characters
                 CharBuffer charBuffer = decoder.decode(buffer);
 
+                IO.println("Received: " + charBuffer);
+
 //                IO.println("CHARACTER BUFFER: " + charBuffer);
-                message.append(charBuffer);
+
+//                message.append(charBuffer);
 
 //                IO.println("STRING BUFFER: " + message);
 
+
                 buffer.clear();  // Clear buffer for next read
 
+//                IO.println("BUFFER AFTER CLEARED: " + buffer);
+
                 // Check for newline (simulating readLine())
-                String content = message.toString();
+//                String content = message.toString();
+
+//                IO.println(content);
 
 //                IO.println("CONTENT: " + content.indexOf("\n"));
-                if (content.contains("\n")) {
-                    String line = content.substring(0, content.indexOf("\n"));
-                    IO.println("Received: " + line);
-                    message = new StringBuilder(content.substring(content.indexOf("\n") + 1));
-//                    IO.println("MESSAGE: " + message);
-                }else{
-                    IO.println("Received: " + message);
-                }
-
-
-
-
-
-
-
-
+//                if (content.contains("\n")) {
+//                    String line = content.substring(0, content.indexOf("\n"));
+//                    IO.println("Received: " + line);
+//                    message = new StringBuilder(content.substring(content.indexOf("\n") + 1));
+////                    IO.println("MESSAGE: " + message);
+//                }else{
+//                    IO.println("Received: " + message);
+//                }
             }
 
 //            IO.println("STRING BUILDER: "+ message);
 
             clientChannel.close();
             serverChannel.close();
+
+//            clientChannel.shutdownInput();
+
 
             } catch (Exception e) {
                 e.printStackTrace();
@@ -115,4 +119,4 @@
         }
     }
 
-    //nmcli -s connection show "TRAINING"
+    //nmcli -s conne ction show "TRAINING"
