@@ -119,4 +119,4 @@
         }
     }
 
-    //nmcli -s conne ction show "TRAINING"
+    //nmcli -s connection show "TRAINING"

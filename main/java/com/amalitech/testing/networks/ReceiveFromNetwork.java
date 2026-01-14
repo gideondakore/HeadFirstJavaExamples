@@ -7,14 +7,19 @@ import java.io.Reader;
 import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.net.SocketAddress;
+import java.nio.Buffer;
+import java.nio.ByteBuffer;
+import java.nio.CharBuffer;
 import java.nio.channels.Channels;
 import java.nio.channels.SocketChannel;
+import java.nio.charset.Charset;
+import java.nio.charset.CharsetDecoder;
 import java.nio.charset.StandardCharsets;
 
 public class ReceiveFromNetwork {
     public static void main(String[] args){
-//        receiveNIO2();
-        receiveTradition();
+        receiveNIO2();
+//        receiveTradition();
     }
 
 
@@ -22,15 +27,29 @@ public class ReceiveFromNetwork {
         SocketAddress socketAddress = new InetSocketAddress("localhost", 5000);
 
         try(SocketChannel socketChannel = SocketChannel.open(socketAddress);
-            Reader reader = Channels.newReader(socketChannel, StandardCharsets.UTF_8);){
+//            Reader reader = Channels.newReader(socketChannel, StandardCharsets.UTF_8); Traditional style
+            ){
 
-            System.out.println("IS OPEN: " + socketChannel.isOpen());
+            Charset charset = StandardCharsets.UTF_8;
+            ByteBuffer buffer = ByteBuffer.allocate(1024);
+            CharsetDecoder decoder = charset.newDecoder();
 
-            BufferedReader bufferedReader = new BufferedReader(reader);
+//            BufferedReader bufferedReader = new BufferedReader(reader); Traditonal
+            IO.println("IS OPEN: " + socketChannel.isOpen());
 
-            String line;
-            while ((line = bufferedReader.readLine()) != null){
-                IO.println(line);
+//            String line;
+//            while ((line = bufferedReader.readLine()) != null) {
+//                IO.println(line);
+//            }
+
+            while (socketChannel.read(buffer) != -1 ){
+//                buffer.flip();
+
+                CharBuffer charBuffer = decoder.decode(buffer);
+
+                IO.println("Received: " + charBuffer);
+
+                buffer.clear();
             }
 
 
