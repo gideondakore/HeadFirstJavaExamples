@@ -1,4 +1,4 @@
-package com.amalitech.testing.dailyAdvice;
+package com.amalitech.testing.daily_advice;
 
 import java.io.BufferedReader;
 import java.io.IOException;
