@@ -11,6 +11,7 @@ public class FirstNetWork {
         InetSocketAddress serverAddress = new InetSocketAddress("example.com", 80);
 
 
+
         try(SocketChannel socketChannel = SocketChannel.open()){
 
             socketChannel.connect(serverAddress);
@@ -26,6 +27,7 @@ public class FirstNetWork {
 
         }catch (IOException ex){
             ex.printStackTrace();
+
         }
 
 
