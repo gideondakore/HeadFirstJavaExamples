@@ -18,11 +18,19 @@ public class DailyAdviceClient {
             Reader channelReader = Channels.newReader(socketChannel, StandardCharsets.UTF_8);
             BufferedReader reader = new BufferedReader(channelReader);
 
-//            String advice = rea
+            String advice = reader.readLine();
+
+            IO.println("Today you should: " + advice);
+
+            reader.close();
 
         }catch(IOException e){
             e.printStackTrace();
         }
+    }
+
+    public static void main(String[] args){
+        new DailyAdviceClient().go();
     }
 
 }
