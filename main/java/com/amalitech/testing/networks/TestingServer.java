@@ -27,10 +27,14 @@
             ServerSocketChannel serverChannel = ServerSocketChannel.open();
             serverChannel.bind(new InetSocketAddress(5000));
 
+
 //            IO.println("Server started on port 5000");
 
             // 2. Accept connection (returns SocketChannel instead of Socket)
-            SocketChannel clientChannel = serverChannel.accept();
+
+            IO.println("Server is running");
+            SocketChannel clientChannel = serverChannel.accept(); //Blocking
+            IO.println("Sever is connected successfully!");
 //            IO.println("Client connected");
 
             // 3. ByteBuffer instead of InputStream
