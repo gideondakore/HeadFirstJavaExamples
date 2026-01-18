@@ -3,7 +3,6 @@ package com.amalitech.testing.daily_advice;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.InetSocketAddress;
-
 import java.nio.channels.Channels;
 import java.nio.channels.ServerSocketChannel;
 import java.nio.channels.SocketChannel;
@@ -48,7 +47,6 @@ public class DailyAdviceServer {
     private String getAdvice(){
         return adviceList[random.nextInt(adviceList.length)];
     }
-
 
     public static void main(){
         new DailyAdviceServer().go();

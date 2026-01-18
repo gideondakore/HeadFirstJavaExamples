@@ -10,8 +10,6 @@ public class FirstNetWork {
     public static void main(String[] args){
         InetSocketAddress serverAddress = new InetSocketAddress("example.com", 80);
 
-
-
         try(SocketChannel socketChannel = SocketChannel.open()){
 
             socketChannel.connect(serverAddress);
