@@ -6,10 +6,14 @@ class BankAccount {
     public int getBalance() {
         return balance;
     }
-    public void spend(int amount) {
-        balance = balance - amount;
-        if (balance < 0) {
-            System.out.println("Overdrawn!");
+    public synchronized void spend(String name, int amount) {
+        if (balance >= amount) {
+            balance = balance - amount;
+            if (balance < 0) {
+                System.out.println("Overdrawn!");
+            }
+        } else {
+            System.out.println("Sorry, not enough for " + name);
         }
     }
 }
