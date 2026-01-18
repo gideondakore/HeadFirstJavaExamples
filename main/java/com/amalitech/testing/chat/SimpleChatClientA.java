@@ -26,7 +26,7 @@ public class SimpleChatClientA {
         JPanel mainPanel = new JPanel();
         mainPanel.add(outgoing);
         mainPanel.add(sendButton);
-        JFrame frame = new JFrame("Ludicrously Simple Chat Client");
+        JFrame frame = new JFrame("Ludicrously Simple Chat Client send message only");
         frame.getContentPane().add(BorderLayout.CENTER, mainPanel);
         frame.setSize(400, 100);
         frame.setVisible(true);

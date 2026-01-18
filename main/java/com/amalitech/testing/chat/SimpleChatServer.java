@@ -32,7 +32,9 @@ public class SimpleChatServer {
                 SocketChannel clientSocket = serverSocketChannel.accept();
                 PrintWriter writer = new PrintWriter(Channels.newWriter(clientSocket, UTF_8));
                 clientWriters.add(writer);
+                IO.println("NUMBER OF CLIENT CONNECTED: " + clientWriters.size());
                 threadPool.submit(new ClientHandler(clientSocket));
+
             }
 
         }catch (IOException ex){
