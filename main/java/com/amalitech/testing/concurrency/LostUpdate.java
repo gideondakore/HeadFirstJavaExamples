@@ -3,6 +3,7 @@ package com.amalitech.testing.concurrency;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class LostUpdate {
     public static void main(String[] args) throws InterruptedException {
@@ -19,10 +20,17 @@ public class LostUpdate {
 
     }
 }
+//class Balance {
+//    int bal = 0;
+//    public synchronized void increment() {
+//        bal++;
+//    }
+//}
+
 class Balance {
-    int bal = 0;
+    AtomicInteger bal = new AtomicInteger(0);
     public synchronized void increment() {
-        bal++;
+        bal.incrementAndGet();
     }
 }
 
