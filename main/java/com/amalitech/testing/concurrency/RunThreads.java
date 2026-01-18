@@ -7,10 +7,10 @@ public class RunThreads {
 
     public static void main(String[] args){
 
-        try(ExecutorService executor = Executors.newFixedThreadPool(2);){
-            executor.execute(() -> runJob("Job 1"));
-            executor.execute(() -> runJob("Job 2"));
-            executor.shutdown();
+        try(ExecutorService threadPool = Executors.newFixedThreadPool(2);){
+            threadPool.execute(() -> runJob("Job 1"));
+            threadPool.execute(() -> runJob("Job 2"));
+            threadPool.shutdown();
         }
 
 
