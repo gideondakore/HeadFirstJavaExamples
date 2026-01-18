@@ -21,10 +21,8 @@ public class LostUpdate {
 }
 class Balance {
     int bal = 0;
-
-    public void increment() {
+    public synchronized void increment() {
         bal++;
     }
-
 }
 
