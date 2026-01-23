@@ -15,7 +15,7 @@ class BankAccount implements Account{
                 System.out.println("Overdrawn!");
             }
         } else {
-            System.out.println("Sorry, not enough for " + name + ". Current Balance: " + this.getBalance());
+            System.out.println("Sorry, not enough for " + name + ". Current Balance: " + balance);
         }
     }
 }
