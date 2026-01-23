@@ -5,21 +5,27 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class BankAccountAtomicOperation implements Account {
 
     private AtomicInteger balance = new AtomicInteger(100);
-    public AtomicInteger getBalance() {
-        return balance;
+    public int getBalance() {
+        return balance.get();
     }
 
     public void spend(String name, int amount) {
+        int currentBalance;
+        int newBalance;
+       do{
 
-        boolean success = balance.compareAndSet(getBalance().intValue(), getBalance().intValue() - amount);
+           currentBalance = balance.get();
+           newBalance = currentBalance - amount;
 
-        if(success){
-            System.out.println(name + " transaction completed successfully!");
-            System.out.println("Transaction successful! Current balance: " + this.getBalance());
-        }else{
-            System.out.println("Sorry, not enough for " + name + ". Current Balance: " + this.getBalance());
-        }
+           if(newBalance < 0){
+               System.out.println("Sorry, not enough for " + name + ". Current Balance: " + currentBalance);
+               return;
+           }
 
+       }while (!balance.compareAndSet(currentBalance, newBalance));
+
+        System.out.println(name + " transaction completed successfully!");
+        System.out.println("Transaction successful! Current balance: " + balance.get());
     }
 
 }
