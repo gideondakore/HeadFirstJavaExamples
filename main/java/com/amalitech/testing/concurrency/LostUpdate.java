@@ -7,8 +7,11 @@ import java.util.concurrent.TimeUnit;
 public class LostUpdate {
     public static void main(String[] args) throws InterruptedException {
         ExecutorService pool = Executors.newFixedThreadPool(6);
-//        LostUpdateBalanceFix balance = new LostUpdateBalanceFix();
+
+//        LostUpdateBalanceAtomicBalance balance = new LostUpdateBalanceAtomicBalance();
+//        LostUpdateBalanceSynchronize balance = new LostUpdateBalanceSynchronize();
         LostUpdateBalance balance = new LostUpdateBalance();
+
         for (int i = 0; i < 1000; i++) {
             pool.execute(balance::increment);
         }

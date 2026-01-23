@@ -1,9 +1,8 @@
 package com.amalitech.testing.concurrency;
 
-public class LostUpdateBalance {
-
+class LostUpdateBalanceSynchronize {
     int bal = 0;
-    public void increment() {
+    public synchronized void increment() {
         bal++;
     }
 }
