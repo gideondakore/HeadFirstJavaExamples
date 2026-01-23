@@ -1,5 +1,4 @@
 package com.amalitech.testing.concurrency;
-
 import java.util.concurrent.atomic.AtomicInteger;
 
 class LostUpdateBalanceAtomicBalance {

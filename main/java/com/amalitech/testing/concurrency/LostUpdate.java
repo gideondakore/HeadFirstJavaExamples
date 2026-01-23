@@ -15,6 +15,7 @@ public class LostUpdate {
         for (int i = 0; i < 1000; i++) {
             pool.execute(balance::increment);
         }
+
         pool.shutdown();
         if (pool.awaitTermination(1, TimeUnit.MINUTES)) {
             System.out.println("balance = " + balance.bal);
