@@ -8,7 +8,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class LostUpdate {
     public static void main(String[] args) throws InterruptedException {
         ExecutorService pool = Executors.newFixedThreadPool(6);
-        Balance balance = new Balance();
+        LostUpdateBalanceFix balance = new LostUpdateBalanceFix();
+//        LostUpdateBalance balance = new LostUpdateBalance();
         for (int i = 0; i < 1000; i++) {
             pool.execute(balance::increment);
         }
@@ -20,17 +21,5 @@ public class LostUpdate {
 
     }
 }
-//class Balance {
-//    int bal = 0;
-//    public synchronized void increment() {
-//        bal++;
-//    }
-//}
 
-class Balance {
-    AtomicInteger bal = new AtomicInteger(0);
-    public synchronized void increment() {
-        bal.incrementAndGet();
-    }
-}
 
