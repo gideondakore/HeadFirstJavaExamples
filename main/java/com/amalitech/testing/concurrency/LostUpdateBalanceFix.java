@@ -4,7 +4,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 class LostUpdateBalanceFix {
     AtomicInteger bal = new AtomicInteger(0);
-    public synchronized void increment() {
+    public void increment() {
         bal.incrementAndGet();
     }
 }
