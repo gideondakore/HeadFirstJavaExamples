@@ -7,8 +7,11 @@ public class RyanAndMonicaTest {
 
     public static void main(String[] args) {
 
-        BankAccount account = new BankAccount();
+//        BankAccount account = new BankAccount();
 //        BankAccountAtomicOperation account = new BankAccountAtomicOperation();
+        BankAccountAtomicOperation2 account = new BankAccountAtomicOperation2();
+
+
 
 
         RyanAndMonicaJob ryan = new RyanAndMonicaJob("Ryan", account, 50);
