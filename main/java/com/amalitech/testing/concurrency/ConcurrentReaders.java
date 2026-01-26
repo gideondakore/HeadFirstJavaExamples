@@ -11,8 +11,9 @@ public class ConcurrentReaders {
         List<Chat> chatHistory = new ArrayList<>();
         try(ExecutorService executor = Executors.newFixedThreadPool(3);){
             for(int i = 0; i < 5; i++){
-                executor.execute(() -> chatHistory.add(new Chat("Hi there!")));
-
+                executor.execute(() -> chatHistory.add(new Chat("Hi there!"))); // Writing thread
+                executor.execute(() -> System.out.println("FIRST READ: " + chatHistory)); // Reading thread
+                executor.execute(() -> System.out.println("SECOND READ: " + chatHistory)); // Reading thread
             }
             executor.shutdown();
         }
@@ -23,7 +24,7 @@ public class ConcurrentReaders {
 
 //        chatHistory.forEach(chat -> System.out.println(chat.toString()));
 
-        System.out.println(chatHistory);
+//        System.out.println(chatHistory);
 
     }
 
