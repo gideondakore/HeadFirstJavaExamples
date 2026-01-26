@@ -1,9 +1,0 @@
-package com.amalitech.testing.concurrency;
-
-public class LostUpdateBalance {
-
-    int bal = 0;
-    public void increment() {
-        bal++;
-    }
-}
