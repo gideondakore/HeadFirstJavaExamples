@@ -11,7 +11,7 @@ public class ConcurrentReaders {
         List<Chat> chatHistory = new ArrayList<>();
         try(ExecutorService executor = Executors.newFixedThreadPool(3);){
             for(int i = 0; i < 5; i++){
-                executor.execute();
+                executor.execute(() -> chatHistory.add(new Chat("Hi there!")));
             }
         }
 
