@@ -15,6 +15,9 @@ public class ConcurrentReaders {
             }
         }
 
+        for(Chat chat : chatHistory){
+            System.out.println(chat.toString());
+        }
 
     }
 
