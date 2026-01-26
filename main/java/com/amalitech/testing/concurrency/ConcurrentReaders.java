@@ -19,7 +19,9 @@ public class ConcurrentReaders {
 //            System.out.println(chat.toString());
 //        }
 
-        chatHistory.forEach(chat -> System.out.println(chat.toString()));
+//        chatHistory.forEach(chat -> System.out.println(chat.toString()));
+
+        System.out.println(chatHistory);
 
     }
 
