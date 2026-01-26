@@ -16,13 +16,15 @@ public class ConcurrentReadersThreadSafe {
         try(ExecutorService executor = Executors.newFixedThreadPool(3);){
             for(int i = 0; i < 5; i++){
                 executor.execute(() -> chatHistory.add(new Chat("Hi there!"))); // Writing thread
+                executor.execute(() -> System.out.println("FIRST READ: " + chatHistory)); // Reading thread
+                executor.execute(() -> System.out.println("SECOND READ: " + chatHistory)); // Reading thread
             }
             executor.shutdown();
         }
 
-        for(Chat chat : chatHistory){
-            System.out.println(chat.toString());
-        }
+//        for(Chat chat : chatHistory){
+//            System.out.println(chat.toString());
+//        }
 
 //        chatHistory.forEach(chat -> System.out.println(chat.toString()));
 
