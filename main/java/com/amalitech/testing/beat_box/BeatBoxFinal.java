@@ -51,13 +51,14 @@ public class BeatBoxFinal {
             executor.submit(new RemoteReader());
         } catch (Exception e) {
             System.out.println("Couldn't connect-you'll have to play alone");
+            e.printStackTrace();
         }
         setUpMidi();
         buildGUI();
     }
 
     public void buildGUI(){
-        JFrame frame = new JFrame("Cyber BeatBox");
+        JFrame frame = new JFrame(userName != null ? userName : "Cyber BeatBox");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         BorderLayout layout = new BorderLayout();
         JPanel background = new JPanel(layout);
@@ -138,6 +139,7 @@ public class BeatBoxFinal {
         }
         try{
             out.writeObject(userName + nextNum++ + ": " + userMessage.getText());
+            out.writeObject(checkboxState);
         }catch (IOException e){
             System.out.println("Terribly sorry. Could not send it to the server.");
             e.printStackTrace();
@@ -236,6 +238,7 @@ public class BeatBoxFinal {
         public void run(){
             try{
                 Object obj;
+                IO.println("In Remote Reader!");
                 while((obj = in.readObject()) != null){
                     System.out.println("got an object from server");
                     System.out.println(obj.getClass());

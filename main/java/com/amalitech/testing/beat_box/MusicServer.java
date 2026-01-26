@@ -1,7 +1,4 @@
 package com.amalitech.testing.beat_box;
-
-import com.amalitech.testing.chat.SimpleChatServer;
-
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -53,6 +50,8 @@ public class MusicServer {
         private ObjectInputStream in;
 
         public  ClientHandler(Socket socket){
+            IO.println("In the run runnable in Constructor Socket: " + socket);
+
             try{
                 in = new ObjectInputStream(socket.getInputStream());
             }catch (IOException e){
@@ -61,11 +60,17 @@ public class MusicServer {
         }
 
         public void run(){
+            IO.println("In the run runnable");
             Object userName;
             Object beatSequence;
             try{
                 while((userName = in.readObject()) != null){
+                    IO.println("In the run runnable, Username: " + userName);
+
                     beatSequence = in.readObject();
+
+                    IO.println("In the run runnable, Beat sequence: " + beatSequence);
+
 
                     System.out.println("read two objects");
                     tellEveryone(userName, beatSequence);
