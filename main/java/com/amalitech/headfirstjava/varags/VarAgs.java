@@ -4,13 +4,13 @@ public class VarAgs {
 
     public static void main(String... args){
         new VarAgs().printAllObjects((Object[])args);
-//        new VarAgs().printAllObjects2(args);
+        new VarAgs().printAllObjects2(args);
 
     }
 
 //    public static void main(String[] args){
 //        new VarAgs().printAllObjects((Object[])args);
-//        new VarAgs().printAllObjects2((Object[])args);
+//        new VarAgs().printAllObjects2(args);
 //
 //    }
 
@@ -18,11 +18,16 @@ public class VarAgs {
         for(Object element: elements){
             IO.println(element);
         }
+
+        IO.println("\n=============================================================\n");
     }
 
     public void printAllObjects2(Object[] elements){
         for(Object element: elements){
             IO.println(element);
         }
+
+        IO.println("\n=============================================================\n");
+
     }
 }
