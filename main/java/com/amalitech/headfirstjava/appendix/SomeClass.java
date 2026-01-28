@@ -24,5 +24,19 @@ public class SomeClass {
         IO.println("INSTANCE OF ENUM MEMBER TYPE: " + selectedBandMember.getClass().isEnum());
         IO.println("INSTANCE OF TYPE: " + selectedBandMember.getClass().getName());
         IO.println("INSTANCE OF SIMPLIFY TYPE: " + selectedBandMember.getClass().getSimpleName());
+
+
+        Member mem = Member.BOB;
+        if(mem.equals(Member.KEVIN))
+            IO.println("Bellloooo!");
+        if(mem == Member.BOB)
+            IO.println("Poochy");
+
+        switch (mem){
+            case KEVIN -> IO.println("Uh... la cucaracha?");
+            case BOB -> IO.println("King Bob");
+            case STUART -> IO.println("Banana!");
+        }
+
     }
 }
