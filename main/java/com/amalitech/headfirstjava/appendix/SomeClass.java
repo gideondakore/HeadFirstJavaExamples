@@ -4,12 +4,19 @@ import java.util.Arrays;
 
 public class SomeClass {
     public Member selectedBandMember;
+//    var var = 10; // ERROR
+    int var = 20; // Excellento Perfecto
 
     public static void main(String[] args){
+        IO.println("var is not a keyword in Java. It's a reserved type name (also called a context-sensitive keyword or restricted identifier).");
+        IO.println("var value: " + new SomeClass().var);
         new SomeClass().someMethod();
     }
 
     public void someMethod(){
+        var var = 10;
+        IO.println("VAR VALUE: " + var);
+
         selectedBandMember = Member.KEVIN;
         if(selectedBandMember == Member.KEVIN){
             IO.println("MEMBER: " + Arrays.toString(Member.values()));
