@@ -15,7 +15,14 @@ public class SomeClass {
 
     public void someMethod(){
         var var = 10;
+        var someStr = "String";
+        someStr = "Another String";
+
+        var wrong = 2;
+//        wrong = "wrong"; // Error
+
         IO.println("VAR VALUE: " + var);
+        IO.println("SOME STRING: " + someStr);
 
         selectedBandMember = Member.KEVIN;
         if(selectedBandMember == Member.KEVIN){
