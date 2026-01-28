@@ -14,5 +14,6 @@ public class SomeClass {
         if(selectedBandMember == Member.KEVIN){
             IO.println("MEMBER: " + Arrays.toString(Member.values()));
         }
+        IO.println("SELECTED MEMBER: " + selectedBandMember);
     }
 }
