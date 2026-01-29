@@ -43,5 +43,12 @@ public class Main {
         List<EnumClass> members2List =new ArrayList<>(EnumClass.listValues());
         IO.println(members2List.getFirst());
 
+
+        //Unsafe values method
+        EnumClass[] nonSecure = EnumClass.enumValuesNotSafe();
+        nonSecure[0] = null; // It changes and persist the change
+        IO.println(Arrays.toString(EnumClass.enumValues()));
+
+
     }
 }
