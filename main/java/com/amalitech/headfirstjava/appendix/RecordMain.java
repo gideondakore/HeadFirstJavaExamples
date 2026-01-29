@@ -26,5 +26,7 @@ public class RecordMain {
         CustomerOverrideMethod customerOverrideMethod1 = new CustomerOverrideMethod(7, "Him");
         System.out.println("Is customerOverrideMethod == customerOverrideMethod1: " + customerOverrideMethod.equals(customerOverrideMethod1));
         System.out.println("Is valid name: " + customerOverrideMethod.isValidName());
+        System.out.println("Is valid name: " + customerOverrideMethod.isValidName());
+
     }
 }
