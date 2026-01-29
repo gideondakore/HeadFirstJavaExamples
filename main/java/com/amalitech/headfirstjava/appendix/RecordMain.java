@@ -21,5 +21,10 @@ public class RecordMain {
         }catch (ValidationException | IllegalArgumentException | ValidationExceptionCheck ex){
             System.out.println(ex.getMessage());
         }
+
+        CustomerOverrideMethod customerOverrideMethod  = new CustomerOverrideMethod(7, "Him Her");
+        CustomerOverrideMethod customerOverrideMethod1 = new CustomerOverrideMethod(7, "Him");
+        System.out.println("Is customerOverrideMethod == customerOverrideMethod1: " + customerOverrideMethod.equals(customerOverrideMethod1));
+        System.out.println("Is valid name: " + customerOverrideMethod.isValidName());
     }
 }
